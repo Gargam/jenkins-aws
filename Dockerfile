@@ -8,10 +8,11 @@ RUN apt-get update && \
       ca-certificates \
       curl \
       gnupg2 \
-      python-pip \
       less \
       groff \
       software-properties-common && \
+    apt-get install -y \
+      python-pip && \
     curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg > /tmp/dkey; apt-key add /tmp/dkey && \
     add-apt-repository \
       "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
